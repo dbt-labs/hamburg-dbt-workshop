@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: Fact table with one row per order, including the customer, order date, and successful payment amount.
+    semantic_model:
+      enabled: true
+
+    agg_time_dimension: order_date
+
+    columns:
+      - name: order_id
+        description: Eindeutiger Primärschlüssel der Bestellung.
+        entity:
+          name: order_id
+
+          type: primary
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: Fremdschlüssel zum Kunden der Bestellung.
+        entity:
+          name: customer
+          type: foreign
+        data_tests:
+          - not_null
+
+      - name: order_date
+        description: Datum, an dem die Bestellung aufgegeben wurde.
+        granularity: day
+        dimension:
+          type: time
+        data_tests:
+          - not_null
+
+      - name: success_amount_usd
+        description: Erfolgreich bezahlter Betrag der Bestellung in US-Dollar.
+        data_tests:
+          - not_null
+          - dbt_expectations.expect_column_median_to_be_between:
+              arguments:
+                min_value: 15
+                max_value: 20
+                strictly: true # (Optional. Default is 'false'. Adds an 'or equal to' to the comparison operator for min/max)
+
+      - name: fail_amount_usd
+        description: Fehlgeschlagener Zahlungsbetrag der Bestellung in US-Dollar.
+        data_tests:
+          - not_null
+
+    metrics:
+      - name: orders
+        description: Count of orders.
+        type: simple
+        agg: count
+        expr: 1
+
+      - name: order_revenue
+        description: Sum of successful order payment amounts in USD.
+        type: simple
+        agg: sum
+        expr: success_amount_usd
+
+      - name: failed_order_amount
+        description: Sum of failed payment amounts in USD.
+        type: simple
+        agg: sum
+        expr: fail_amount_usd
+
+      - name: order_revenue_per_customer
+        description: "the order revenue generated on average by each customer"
+        label: Revenue per customer
+        type: ratio
+        numerator: order_revenue
+        denominator: customers
+
+      - name: failed_revenue_pct
+        description: Percentage of revenue missed out on failed payments
+        label: failed_revenue_pct
+        type: derived
+        expr: failed_order_amount / order_revenue
+        input_metrics:
+          - name: failed_order_amount
+          - name: order_revenue
