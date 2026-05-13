@@ -1,6 +1,6 @@
 # Hamburg dbt workshop
 
-Welcome to your new dbt project! This repo is specific to the workshop `Hamburg dbt Workshop` rund and hosted by [dbt Labs](https://workshops.us1.dbt.com/workshop) 
+Welcome to your new dbt project! This repo is specific for attendees of the workshop `Hamburg dbt Workshop` run and conducted by [dbt Labs](https://workshops.us1.dbt.com/workshop).
 
 ### Running this projects
 
@@ -26,7 +26,6 @@ To get up and running with this project:
     dbt build
     ```
 7. Follow the workshop instructions to implement the content from `./example/`
-
 
 ### Resources:
 
