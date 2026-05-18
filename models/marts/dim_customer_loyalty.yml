@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_customer_loyalty
+    description: Kundensegmentierung auf Kundenebene auf Basis des Lifetime Value, mit Einordnung in ein über- oder unterdurchschnittliches LTV-Segment relativ zum Median aller Kunden.
+    columns:
+      - name: customer_id
+        description: Eindeutiger Primärschlüssel des Kunden.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: lifetime_value
+        description: Kumulierte Umsatzsumme des Kunden über alle Bestellungen als Grundlage für die Loyalitätssegmentierung.
+
+      - name: ltv_segment
+        description: Loyalitätssegment des Kunden relativ zum Median des Lifetime Value, entweder `over` oder `under`.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['over', 'under']
