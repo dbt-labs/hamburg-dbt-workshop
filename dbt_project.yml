@@ -37,6 +37,6 @@ vars:
 models:
   +static_analysis: strict
   dbt_workshop:
-    +materialized: view
+    +materialized: table
 
     
