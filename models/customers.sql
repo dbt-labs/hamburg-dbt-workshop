@@ -1,3 +1,10 @@
+-- Dies ist ein Kommentar
+{{
+    config(
+        materialized='table'
+    )
+}}
+
 with customers as (
 
     select
