@@ -7,7 +7,11 @@
 with customers as (
 
     select *
+<<<<<<< HEAD
     from {{ ref('stg_jaffle_shop__customers')}}
+=======
+    from {{ ref('stg_jaffle_shop__customers') }}
+>>>>>>> b215ad9fea315294813c8d9f0ef1f7681c498429
 
 ),
 
