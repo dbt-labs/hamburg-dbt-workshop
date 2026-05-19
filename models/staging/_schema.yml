@@ -2,6 +2,7 @@ version: 2
 
 models:
 - name: stg_jaffle_shop__customers
+  description: Bereinigte und umbenannte Kundentabelle aus dem Quellsystem Jaffle Shop. Das Modell stellt pro Kunde genau einen Datensatz mit den grundlegenden Stammdaten für nachgelagerte Modelle bereit.
   columns:
     - name: customer_id
       data_tests:
