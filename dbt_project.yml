@@ -36,7 +36,11 @@ vars:
 
 models:
   +static_analysis: strict
-  dbt_workshop:
-    +materialized: view
+  jaffle_shop:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+ 
 
     
