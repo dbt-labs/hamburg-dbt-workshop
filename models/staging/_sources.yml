@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: raw 
+    database: raw
     schema: jaffle_shop
     tables:
       - name: customers
@@ -16,5 +16,3 @@ sources:
               count: 24
               period: hour
           loaded_at_field: _etl_loaded_at
-
- 
