@@ -37,20 +37,17 @@ vars:
 # using the `{{ config(...) }}` macro.
 
 models:
-  +static_analysis: strict
-<<<<<<< HEAD
+
+
   +persist_docs:
     relation: true
     columns: true
   dbt_workshop:
-<<<<<<< HEAD
     Staging:
-=======
-=======
   jaffle_shop:
->>>>>>> 9822dbc89e1116e50506b7ea20b74644389b6668
+
     staging:
->>>>>>> b215ad9fea315294813c8d9f0ef1f7681c498429
+
       +materialized: view
     marts:
       +materialized: table
