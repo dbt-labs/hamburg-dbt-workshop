@@ -37,7 +37,7 @@ vars:
 models:
   +static_analysis: strict
   dbt_workshop:
-    Staging:
+    staging:
       +materialized: view
     marts:
       +materialized: table
