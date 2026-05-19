@@ -1,20 +1,33 @@
 models:
   - name: stg_jaffle_shop__customers
+    description: customer records from jaffle shop.
     columns:
       - name: customer_id
+        description: unique identifier for a customer.
         data_tests:
           - unique
           - not_null
+      - name: first_name
+        description: customer's first name.
+      - name: last_name
+        description: customer's last name.
+
   - name: stg_jaffle_shop__orders
+    description: order records placed by customers in jaffle shop.
     columns:
       - name: order_id
         description: Primary key for orders.
         data_tests:
           - relationships:
-              arguments: 
+              arguments:
                 to: ref('stg_jaffle_shop__customers')
                 field: customer_id
+      - name: customer_id
+        description: identifier for the customer who placed the order.
+      - name: order_date
+        description: date the order was placed.
       - name: status
+        description: current lifecycle status of the order.
         data_tests:
           - accepted_values:
               arguments:
