@@ -36,6 +36,9 @@ vars:
 
 models:
   +static_analysis: strict
+  +persist_docs:
+    relation: true
+    columns: true
   dbt_workshop:
     staging:
       +materialized: view
