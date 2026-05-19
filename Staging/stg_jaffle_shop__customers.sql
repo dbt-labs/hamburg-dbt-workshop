@@ -1,5 +1,3 @@
-customers as (
-
     select
         id as customer_id,
         first_name,
@@ -7,4 +5,3 @@ customers as (
 
     from  {{ source('jaffle_shop', 'customers') }}
 
-),
