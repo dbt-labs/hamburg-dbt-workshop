@@ -36,9 +36,17 @@ vars:
 
 models:
   +static_analysis: strict
+  +persist_docs:
+    relation: true
+    columns: true
   dbt_workshop:
     staging:
       +materialized: view
     marts:
       +materialized: table
+<<<<<<< HEAD
  
+=======
+
+    
+>>>>>>> b215ad9fea315294813c8d9f0ef1f7681c498429

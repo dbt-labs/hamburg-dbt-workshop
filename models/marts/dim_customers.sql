@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> b215ad9fea315294813c8d9f0ef1f7681c498429
 {{
     config(
         materialized='table'
     )
 }}
+<<<<<<< HEAD
+=======
+
+>>>>>>> b215ad9fea315294813c8d9f0ef1f7681c498429
 with customers as (
 
     select *
