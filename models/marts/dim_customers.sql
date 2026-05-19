@@ -1,10 +1,16 @@
 {{
     config(
         materialized='table'
+<<<<<<< HEAD
         )
 }}
 
 
+=======
+    )
+}}
+
+>>>>>>> 882412b629f7fb7e4fe46dffc66af2d28446a414
 with customers as (
 
     select *
@@ -15,9 +21,13 @@ with customers as (
 orders as (
 
     select *
+<<<<<<< HEAD
 
 
      from {{ ref('stg_jaffle_shop__orders') }}
+=======
+    from {{ ref('stg_jaffle_shop__orders') }}
+>>>>>>> 882412b629f7fb7e4fe46dffc66af2d28446a414
 
 ),
 
