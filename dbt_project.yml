@@ -15,6 +15,7 @@ profile: 'default'
 model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
+docs-paths: ["docs"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]

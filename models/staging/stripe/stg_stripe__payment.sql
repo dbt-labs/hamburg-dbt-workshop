@@ -9,7 +9,8 @@ source as (
 renamed as (
 
     select
-        (amount / 100)::numeric(16, 2) as amount_usd,
+        --(amount / 100)::numeric(16, 2) as amount_usd,
+        {{ jaffle_shop.cents_to_dollars('amount') }} as amount_usd,
         created,
         id as payment_id,
         orderid as order_id,
