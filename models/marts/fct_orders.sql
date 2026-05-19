@@ -1,3 +1,11 @@
+--coalesce(order_payments.amount_usd, 0) as amount_usd
+{% for payment_status in payment_statuses %}
+coalesce(order_payments.{{payment_status}}_amount_usd, 0) as {{payment_status}}_amount_usd,
+{% endfor %}
+
+ 
+
+
 with orders as  (
     select * from {{ ref('stg_jaffle_shop__orders' )}}
 ),
